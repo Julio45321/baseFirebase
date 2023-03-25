@@ -1,0 +1,97 @@
+<ion-toolbar color="medium">
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/tablero"></ion-back-button>
+  </ion-buttons>
+  <ion-title color="tertiary">Vincular Dispositivo</ion-title>
+</ion-toolbar>
+
+
+<ion-content class="ion-padding" color="medium">
+<ion-grid fixed>
+  <ion-row>
+    <ion-col class="ion-aling-self-start"></ion-col>
+    <ion-col size="12" class="ion-aling-self-center">
+      <ion-card>
+        <ion-card-content>
+          <form (ngSubmit)="vincular(registro)"  #registro="ngForm">
+              <div class="input-field col s6">
+                <ion-label>Código a vincular:</ion-label>
+                <span ngIf="registro.submitted && registro.controls['nombre'].errors">*El código es requerido</span>
+                <ion-input type="text"
+                            placeholder="Código de vinculación"
+                            name="nombre"
+                            [(ngModel)]="dispositivo.nombre"
+                            required
+                            ></ion-input>
+              </div>
+              <hr>
+              <h3>Ubicación del dispositivo</h3>
+              <div class="input-field col s6">
+                <ion-label>Estado:</ion-label>
+                <span ngIf="registro.submitted && registro.controls['estado'].errors">*El estado es requerido</span>
+                <ion-input type="text"
+                            placeholder="Estado"
+                            name="estado"
+                            [(ngModel)]="dispositivo.estado"
+                            required
+                            ></ion-input>
+              </div>
+              <div class="input-field col s6">
+                <ion-label>Ciudad:</ion-label>
+                <span ngIf="registro.submitted && registro.controls['ciudad'].errors">*La ciudad es requerida</span>
+                <ion-input type="text"
+                            placeholder="Ciudad"
+                            name="ciudad"
+                            [(ngModel)]="dispositivo.ciudad"
+                            required
+                            ></ion-input>
+              </div>
+              <div class="input-field col s6">
+                <ion-label>Colonia:</ion-label>
+                <ion-input type="text"
+                            placeholder="Colonia"
+                            name="colonia"
+                            [(ngModel)]="dispositivo.colonia"
+                            ></ion-input>
+              </div>
+              <div class="input-field col s6">
+                <ion-label>Calle:</ion-label>
+                <span ngIf="registro.submitted && registro.controls['calle'].errors">*La calle es requerida</span>
+                <ion-input type="text"
+                            placeholder="Calle"
+                            name="calle"
+                            [(ngModel)]="dispositivo.calle"
+                            required
+                            ></ion-input>
+              </div>
+              <div class="input-field col s6">
+                <ion-label>CP:</ion-label>
+                <span ngIf="registro.submitted && registro.controls['cp'].errors">*El código postal es requerido</span>
+                <ion-input type="text"
+                            placeholder="CP"
+                            name="cp"
+                            [(ngModel)]="dispositivo.cp"
+                            required
+                            ></ion-input>
+              </div>
+              <ion-row class="ion-justify-content-end ion-margin">
+                <ion-col size="6">
+                  <ion-button type="submit" expand="full" color="tertiary">
+                    Vincular
+                  </ion-button>
+                </ion-col>
+                <ion-col size="6">
+                  <ion-button routerLink="/tablero" expand="full" color="medium">
+                    Cancelar
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+
+          </form>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col class="ion-aling-self-end"></ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

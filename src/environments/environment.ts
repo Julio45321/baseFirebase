@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig : {
+    apiKey: "AIzaSyBSQV1E-A4R1KzQB9NeS3Ild5OBh3yR24s",
+    authDomain: "iot-fotoresistencia.firebaseapp.com",
+    databaseURL: "https://iot-fotoresistencia-default-rtdb.firebaseio.com",
+    projectId: "iot-fotoresistencia",
+    storageBucket: "iot-fotoresistencia.appspot.com",
+    messagingSenderId: "897095955894",
+    appId: "1:897095955894:web:d492a806fa01728aa5fd17",
+    measurementId: "G-DM4JKQR0YS"
+  }
 };
 
 /*

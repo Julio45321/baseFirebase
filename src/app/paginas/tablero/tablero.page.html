@@ -1,0 +1,40 @@
+
+  <ion-toolbar>
+    <ion-avatar>
+      <img src="/assets/img/icono.png" />
+    </ion-avatar>
+    <ion-buttons slot="end">
+      <ion-button (click)="salir()" color="danger">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+
+      </ion-button>
+    </ion-buttons>
+    <ion-title>tablero</ion-title>
+  </ion-toolbar>
+
+
+<ion-content class="ion-padding">
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="settings"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="bottom" color="tertiary">
+      <ion-fab-button routerLink="/vincular-dispositivo"><ion-icon name="sync-outline"></ion-icon></ion-fab-button>
+      <ion-fab-button routerLink="/modificar-usuario"><ion-icon name="construct-outline"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-card *ngFor="let dis of dispositivos">
+    <ion-card-header color="tertiary">
+      <ion-card-title >{{ dis.nombre | uppercase }}</ion-card-title>
+      <ion-toolbar color="tertiary">
+        <a routerLink="/reporte/ {{ dis.nombre }}" class="btn-floating waves-effect waves-light grey m2" slot="end">
+          <i class="material-icons">assessment</i>
+        </a>
+       <a routerLink="/actualizar-dispositivo/ {{ dis.nombre }}" class="btn-floating waves-effect waves-light grey m2" slot="end">
+        <i class="material-icons">settings</i>
+       </a>
+      </ion-toolbar>
+    </ion-card-header>
+  </ion-card>
+</ion-content>

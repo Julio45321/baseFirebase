@@ -1,0 +1,54 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/tablero"></ion-back-button>
+  </ion-buttons>
+  <ion-title>Actualizar datos del usuario</ion-title>
+</ion-toolbar>
+
+
+<ion-content class="ion-padding">
+<ion-grid fixed>
+  <ion-row>
+    <ion-col size="6"></ion-col>
+    <ion-col size="12" class="ion-aling-self-center" >
+      <ion-card>
+        <ion-card-content>
+          <form (ngSubmit)="actualizar(modificar)" #modificar="ngForm">
+            <div class="input-field col s6">
+              <ion-label>Nombre:</ion-label>
+              <span ngIf="modificar.submitted && modificar.controls['nombre'].errors">*El nombre es requerido</span>
+              <ion-input type="text"
+                          name="nombre"
+                          [(ngModel)]="usuario.nombre"
+                          required
+                          ></ion-input>
+            </div>
+            <div class="input-field col s6">
+              <ion-label>Apellidos:</ion-label>
+              <span ngIf="modificar.submitted && modificar.controls['apellidos'].errors">*La apellidos son requeridos</span>
+              <ion-input type="text"
+                          name="apellidos"
+                          [(ngModel)]="usuario.apellidos"
+                          required
+                          ></ion-input>
+            </div>
+            <ion-row class="ion-justify-content-end ion-margin">
+              <ion-col size="6">
+                <ion-button type="submit" expand="full" color="tertiary">
+                  Actualizar
+                </ion-button>
+              </ion-col>
+              <ion-col size="6">
+                <ion-button routerLink="/tablero" expand="full" color="medium">
+                  Cancelar
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </form>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col size="6"></ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

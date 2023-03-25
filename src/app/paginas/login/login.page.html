@@ -1,0 +1,48 @@
+<ion-toolbar color="medium">
+  <ion-buttons slot="start">
+      <ion-back-button defaultHref="/entrada"></ion-back-button>
+  </ion-buttons>
+  <ion-title color="tertiary">Inicio Sesion</ion-title>
+</ion-toolbar>
+
+<ion-content class="ion-padding" color="medium">
+<ion-grid fixed>
+  <ion-row>
+    <ion-col class="ion-align-self-start"></ion-col>
+    <ion-col size="12" class="ion-align-self-center">
+      <ion-card>
+        <ion-card-content>
+          <form (ngSubmit)="login(form)" #form="ngForm">
+              <div class="input-field col s6">
+                <ion-label>Email</ion-label>
+                <span *ngIf="form.submitted && form.controls['email'].errors" class="red-text text-accent-4">**Correo obligatorio</span>
+                <ion-input type="email" placeholder="Email" name="email" [(ngModel)]="usuario.email" required email>
+                </ion-input>
+              </div>
+              <div class="input-field col s6">
+                <ion-label>Password</ion-label>
+                <span *ngIf="form.submitted && form.controls['password'].errors" class="red-text text-accent-4">**Al menos 6 caracteres</span>
+                <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="usuario.password" required minlength="6">
+                </ion-input>
+              </div>
+              <ion-row>
+                <ion-col size="6">
+                  <ion-button type="submit"  expand="full" color="tertiary">
+                    Iniciar
+                  </ion-button>
+                </ion-col>
+                <ion-col size="6">
+                  <ion-button routerLink="/entrada"  expand="full" color="medium">
+                    Cancelar
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+          </form>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col class="ion-align-self-end"></ion-col>
+  </ion-row>
+</ion-grid>
+
+</ion-content>
